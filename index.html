@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" type="image/jpeg" href="assets/chacal-de-hero.jpg">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upando no PoE 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e0e0e;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header, .logo-poe {
+      background: linear-gradient(90deg, #1a1410, #231b15, #1a1410);
+      color: #d6b48a;
+      text-align: center;
+      padding: 25px 0;
+      border-radius: 12px;
+      border-bottom: 2px solid #3a2d20;
+      border-top: 2px solid #3a2d20;
+      box-shadow: 0 0 18px #000 inset;
+      font-family: 'Georgia', serif;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .logo-text {
+      font-size: 32px;
+      color: #d6b48a;
+      text-shadow: 0 0 10px #000, 0 0 4px #c28b46;
+      padding: 0 12px;
+    }
+
+    .logo-left, .logo-right {
+      font-size: 28px;
+      color: #c28b46;
+      text-shadow: 0 0 12px #000;
+    }
+
+    main {
+      margin-top: 20px;
+    }
+
+    .bonus-container {
+      background: #15110d;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #2d241b;
+      box-shadow: 0 0 10px #000 inset;
+      margin-bottom: 25px;
+    }
+
+    .bonus-header {
+      background: linear-gradient(90deg, #221a14, #2e251d, #221a14);
+      color: #d6b48a;
+      padding: 18px;
+      cursor: pointer;
+      text-align: center;
+      user-select: none;
+      transition: 0.3s ease;
+      border-radius: 4px;
+      border: 1px solid #3a2d20;
+      text-shadow: 0 0 6px #000;
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .bonus-header:hover {
+      background: linear-gradient(90deg, #3a2d20, #4a3a2c, #3a2d20);
+      transform: scale(1.03);
+      box-shadow: 0 0 12px #c28b46;
+    }
+
+    .bonus-text {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      line-height: 1.6;
+    }
+
+    .bonus-text.show {
+      max-height: 2000px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+      text-align: left;
+    }
+
+    .completed-row {
+      opacity: 0.35;
+      background: #0f0f0f !important;
+      text-decoration: line-through;
+      transition: 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-poe">
+    <span class="logo-left">✦</span>
+    <span class="logo-text">UPANDO NO POE 2</span>
+    <span class="logo-right">✦</span>
+  </div>
+
+  <main>
+
+    <!-- Bônus Permanentes -->
+    <div class="bonus-container">
+      <div class="bonus-header" onclick="toggle('bonus-text')">
+        ✦✦═ Bônus Permanentes ao Término dos Atos ═✦✦
+      </div>
+      <div id="bonus-text" class="bonus-text">
+        <p><strong>Ao final da história do jogo, você pode obter os seguintes bônus permanentes:</strong></p>
+        <p><strong>Pontos de Habilidade Passiva do Conjunto de Armas:</strong> 24 pontos</p>
+        <p><strong>Resistências Elementais:</strong> +20% para Fogo, Gelo e Raio</p>
+        <p><strong>Espírito (Spirit):</strong> +100</p>
+        <p><strong>Vida Máxima:</strong> +20</p>
+        <p><strong>Aumento de Vida Máxima:</strong> +8%</p>
+        <p><strong>Bônus Baseados em Escolhas:</strong></p>
+        <ul>
+          <li>+30% de aumento no ganho de Cargas de Talisman (Charm Charges)</li>
+          <li>+15% de aumento na Recuperação de Mana de Frascos</li>
+        </ul>
+        <p><strong>Permanentes (não podem ser alterados):</strong></p>
+        <ul>
+          <li>+25% de aumento no Limiar de Atordoamento (Stun Threshold)</li>
+          <li>+30% de aumento no Limiar de Doenças Elementais (Elemental Ailment Threshold)</li>
+          <li>+25% de aumento na Taxa de Regeneração de Mana</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ato 1 -->
+    <div class="bonus-container">
+      <div class="bonus-header" onclick="toggle('ato1-text')">
+        ✦✦═ Ato 1 ═✦✦
+      </div>
+      <div id="ato1-text" class="bonus-text">
+        <p>O Ato 1 apresenta uma variedade de bônus, incluindo resistência elemental, pontos de habilidade e bônus de vida.</p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Clearfell</td>
+            <td>Derrote Beira of the Rotten Pack</td>
+            <td>+10% Resistência a Gelo</td>
+          </tr>
+          <tr>
+            <td>Hunting Grounds</td>
+            <td>Derrote Crowbell</td>
+            <td>+2 Pontos de Habilidade Passiva de Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Freythorn</td>
+            <td>Derrote The King in the Mists</td>
+            <td>+30 de Espírito</td>
+          </tr>
+          <tr>
+            <td>Ogham Farmlands</td>
+            <td>Recupere o Alaúde de Una e entregue a Una</td>
+            <td>+2 Pontos de Habilidade Passiva de Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Ogham Manor</td>
+            <td>Derrote Candlemass, The Living Rite</td>
+            <td>+20 de Vida Máxima</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Ato 2 -->
+    <div class="bonus-container">
+      <div class="bonus-header" onclick="toggle('ato2-text')">
+        ✦✦═ Ato 2 ═✦✦
+      </div>
+      <div id="ato2-text" class="bonus-text">
+        <p>O Ato 2 introduz escolhas opcionais que impactam builds.</p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Keth</td>
+            <td>Derrote Kabala, Rainha Constritora (Constrictor Queen)</td>
+            <td>+2 Pontos de Habilidade Passiva de Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Valley of the Titans</td>
+            <td>Entregue as Relíquias de Kabala e do Clã do Sol ao altar</td>
+            <td>Escolha entre:<br>• +30% ganho de Cargas de Talismã +1 Espaço de Talismã<br>OU<br>• +30% Duração de Efeito de Talismã +1 Espaço de Talismã (trocável)</td>
+          </tr>
+          <tr>
+            <td>Deshar</td>
+            <td>Entregue a Carta Final para Shambrin</td>
+            <td>+2 Pontos de Habilidade Passiva de Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Spires of Deshar</td>
+            <td>Interaja com o Santuário das Irmãs de Garukhan</td>
+            <td>+10% de Resistência a Raio</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Ato 3 -->
+    <div class="bonus-container">
+      <div class="bonus-header" onclick="toggle('ato3-text')">
+        ✦✦═ Ato 3 ═✦✦
+      </div>
+      <div id="ato3-text" class="bonus-text">
+        <p>O Ato 3 oferece bônus poderosos e escolhas permanentes.</p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Jungle Ruins</td>
+            <td>Derrote Mighty Silverfist</td>
+            <td>+2 Pontos de Habilidade Passiva de Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>The Azak Bog</td>
+            <td>Derrote Ignagduk, The Bog Witch</td>
+            <td>+30 de Espírito (Normal)</td>
+          </tr>
+          <tr>
+            <td>The Venom Crypts</td>
+            <td>Entregue o Frasco de Veneno para Servi</td>
+            <td>Escolha entre:<br>• +25% Limiar de Atordoamento<br>• +30% Limiar de Doenças Elementais<br>• +25% Taxa de Regeneração de Mana<br>(não pode ser alterado)</td>
+          </tr>
+          <tr>
+            <td>Jiquani’s Machinarium</td>
+            <td>Derrote Blackjaw, The Remnant</td>
+            <td>+10% de Resistência a Fogo</td>
+          </tr>
+          <tr>
+            <td>Aggorat</td>
+            <td>Sacrifique o Coração do Sacrifício no altar</td>
+            <td>+2 Pontos de Habilidade Passiva de Conjunto de Armas</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Ato 4 -->
+    <div class="bonus-container">
+      <div class="bonus-header" onclick="toggle('ato4-text')">
+        ✦✦═ Ato 4 ═✦✦
+      </div>
+      <div id="ato4-text" class="bonus-text">
+        <p>Durante o Ato 4, você tem acesso a 8 ilhas. Apenas três são necessárias para progredir.</p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Isle of Kin</td>
+            <td>Mate a Besta Cega (Blind Beast)</td>
+            <td>+2 Pontos de Habilidade do Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Halls of the Dead</td>
+            <td>Provação de Ngkanu</td>
+            <td>Escolha entre:<br>• +5 Destreza<br>• +5% Resistência a Raio<br>• +5 Força<br>• +5% Resistência a Fogo<br>• +5 Inteligência<br>• +5% Resistência a Gelo</td>
+          </tr>
+          <tr>
+            <td>Eye of Hinekora</td>
+            <td>Preste respeito no Salão Silencioso</td>
+            <td>+5% Mana Máxima</td>
+          </tr>
+          <tr>
+            <td>Trail of the Ancestors</td>
+            <td>Complete a Provação e fale com Hinekora</td>
+            <td>+2 Pontos de Habilidade do Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Abandoned Prison</td>
+            <td>Peça um bônus à Deusa da Justiça</td>
+            <td>Escolha entre:<br>• 30% recuperação de Mana de Frascos<br>• 30% recuperação de Vida de Frascos</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Interlúdio -->
+<div class="bonus-container">
+    <div class="bonus-header" onclick="toggle('interludio-text')">
+      ✦✦═ Interlúdio ═✦✦
+    </div>
+    <div id="interludio-text" class="bonus-text">
+      <p>Após completar o Ato 4, você ganha acesso a três interlúdios (por enquanto. Isso provavelmente mudará assim que os Atos 5 e 6 estiverem disponíveis). Completá-los levará você ao Nível 65 e abrirá o acesso ao conteúdo de final de jogo (endgame).</p>
+  
+      <!-- Interlúdio 1 -->
+      <div class="bonus-subsection">
+        <p><strong>Interlúdio 1: A Maldição de Holten (The Curse of Holten)</strong></p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Ogham</td>
+            <td>Ajude Renly a reconstruir a vila e derrotar a corrupção</td>
+            <td>–</td>
+          </tr>
+          <tr>
+            <td>Wolvenhold</td>
+            <td>Mate Oswin, O Guardião Pavoroso (The Dread Warden)</td>
+            <td>+2 Pontos de Habilidade do Conjunto de Armas</td>
+          </tr>
+        </table>
+      </div>
+  
+      <!-- Interlúdio 2 -->
+      <div class="bonus-subsection">
+        <p><strong>Interlúdio 2: A Barya Roubada (The Stolen Barya)</strong></p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Travessia Khari, Deserto Vastiri</td>
+            <td>Obtenha o item de missão Presente do Derretido (Molten One’s Gift)</td>
+            <td>+5% de Vida Máxima</td>
+          </tr>
+          <tr>
+            <td>Deserto Vastiri, missão "Limpando o Caminho"</td>
+            <td>Mate o Verme e o Escorpião e fale com Risu</td>
+            <td>+2 Pontos de Habilidade do Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Qimah</td>
+            <td>Escolha um bônus (alterável retornando ao local)</td>
+            <td>
+              +5% Resistências Elementais<br>
+              +5 para todos os Atributos<br>
+              +12% Taxa de Recuperação de Recarga<br>
+              +20% Área de Efeito de Presença<br>
+              +15% Defesas Globais<br>
+              +3% Velocidade de Movimento<br>
+              +5% Ganho de Experiência
+            </td>
+          </tr>
+        </table>
+      </div>
+  
+      <!-- Interlúdio 3 -->
+      <div class="bonus-subsection">
+        <p><strong>Interlúdio 3: A Contingência de Doryani (Doryani’s Contingency)</strong></p>
+        <table>
+          <tr>
+            <th>Localização</th>
+            <th>Objetivo</th>
+            <th>Recompensa</th>
+          </tr>
+          <tr>
+            <td>Vila Kriar</td>
+            <td>Mate Lythara</td>
+            <td>+40 Espírito Máximo</td>
+          </tr>
+          <tr>
+            <td>Cavernas Uivantes (Howling Caves)</td>
+            <td>Mate o Iéti</td>
+            <td>+2 Pontos de Habilidade do Conjunto de Armas</td>
+          </tr>
+          <tr>
+            <td>Missão "Cerco de Oriath" (Siege of Oriath)</td>
+            <td>Complete a missão</td>
+            <td>+2 Pontos de Habilidade do Conjunto de Armas</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+  </main>
+<!-- Indicadores no Mapa -->
+<div class="bonus-container">
+    <div class="bonus-header" onclick="toggle('mapa-text')">
+      ✦✦═ Indicadores no Mapa ═✦✦
+    </div>
+    <div id="mapa-text" class="bonus-text" style="text-align:center;">
+      <p>Aqui estão os indicadores de mapa importantes no jogo:</p>
+      <img src="https://wp.icy-veins.com/wp-content/uploads/2025/01/Permanent-Buffs-Map.jpg" 
+           alt="Indicadores no Mapa" 
+           style="max-width:100%; border-radius:12px; border:1px solid #3a2d20; box-shadow:0 0 10px #000;">
+      
+      <div style="margin-top:12px; text-align:left; display:inline-block;">
+        <p><strong>O mapa da campanha inclui símbolos úteis que indicam onde você pode obter bônus permanentes:</strong></p>
+        <ul>
+          <li><strong>Caveiras:</strong> Chefes opcionais.</li>
+          <li><strong>Caveiras com um sinal de mais (+):</strong> Chefes que concedem um bônus permanente.</li>
+          <li><strong>Baús:</strong> Saque valioso (Valuable loot).</li>
+          <li><strong>Bolsa:</strong> Saque notável (Notable loot).</li>
+          <li><strong>Santuários:</strong> Locais interativos que concedem bônus imediatamente após a ativação.</li>
+          <li><strong>Outros Símbolos:</strong> Missões secundárias.</li>
+        </ul>
+      </div>
+
+      <!-- Nova imagem e texto adicional -->
+      <div style="margin-top:16px;">
+        <img src="https://www.poe-vault.com/poe2/api/images?url=https%3A%2F%2Fwp-staging.icy-veins.com%2Fwp-content%2Fuploads%2F2025%2F01%2FMap-Icons.jpg&w=640&q=75" 
+             alt="Ícones do Mapa" 
+             style="max-width:100%; border-radius:12px; border:1px solid #3a2d20; box-shadow:0 0 10px #000;">
+        <div style="margin-top:12px; text-align:left; display:inline-block;">
+          <p><strong>Para localizar os chefes que concedem bônus permanentes no Path of Exile 2:</strong> basta observar atentamente o mapa do jogo. Os chefes que oferecem bônus são marcados com um ícone de caveira com um pequeno sinal de mais (+) ao lado. Se o ícone estiver acinzentado, significa que você já derrotou aquele chefe.</p>
+          <p><strong>Dica para Novos Jogadores:</strong> Use o Mapa Subterrâneo (Underground Map) — acessível através da opção de alternância no lado direito da interface do mapa — para garantir que você não perca objetivos escondidos no subsolo.</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <script>
+    // Função genérica para mostrar/ocultar qualquer bonus-text
+    function toggle(id) {
+      document.getElementById(id).classList.toggle('show');
+    }
+
+    // Marcar linhas da tabela como concluídas
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('table tr').forEach((row, index) => {
+        if(index === 0) return; // Ignorar header
+        row.style.cursor = 'pointer';
+        row.addEventListener('click', () => row.classList.toggle('completed-row'));
+      });
+    });
+  </script>
+</body>
+</html>
