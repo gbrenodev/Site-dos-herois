@@ -19,4 +19,4 @@ Todo o conteúdo foi feito de forma simples e direta, usando **apenas HTML**, pa
 
 O site está publicado via GitHub Pages:
 
-🔗 https://guiie-dev.github.io/Site-dos-herois/
+🔗 https://gbrenodev.github.io/Site-dos-herois/
